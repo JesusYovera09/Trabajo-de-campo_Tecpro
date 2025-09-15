@@ -7,8 +7,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Arreglo.ArregloProductos;
+import Clase.Producto;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
@@ -33,7 +35,7 @@ public class gui extends JFrame implements ActionListener {
 	private JTextArea txtS;
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
-	private JButton button;
+	private JButton btnBusCar;
 	private JButton button_1;
 	private JButton btnNewButton_2;
 
@@ -112,13 +114,15 @@ public class gui extends JFrame implements ActionListener {
 		btnNewButton.setBounds(0, 107, 89, 23);
 		contentPane.add(btnNewButton);
 		
-		btnNewButton_1 = new JButton("New button");
+		btnNewButton_1 = new JButton("Adicionar");
+		btnNewButton_1.addActionListener(this);
 		btnNewButton_1.setBounds(90, 107, 89, 23);
 		contentPane.add(btnNewButton_1);
 		
-		button = new JButton("New button");
-		button.setBounds(180, 107, 89, 23);
-		contentPane.add(button);
+		btnBusCar = new JButton("Buscar");
+		btnBusCar.addActionListener(this);
+		btnBusCar.setBounds(180, 107, 89, 23);
+		contentPane.add(btnBusCar);
 		
 		button_1 = new JButton("New button");
 		button_1.setBounds(271, 107, 89, 23);
@@ -130,6 +134,12 @@ public class gui extends JFrame implements ActionListener {
 
 	}
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnBusCar) {
+			do_btnBusCar_actionPerformed(e);
+		}
+		if (e.getSource() == btnNewButton_1) {
+			do_btnNewButton_1_actionPerformed(e);
+		}
 		if (e.getSource() == btnNewButton) {
 			do_btnNewButton_actionPerformed(e);
 		}
@@ -165,5 +175,34 @@ public class gui extends JFrame implements ActionListener {
 	    	}
 	}
 
+	protected void do_btnNewButton_1_actionPerformed(ActionEvent e) {
+	    Producto p = ap.Buscar(LeerCodigo());
+	    
+	    if (p == null) { 
+	        Producto nuevo = new Producto(
+	            LeerCodigo(),
+	            LeerCategoria(),
+	            LeerPrecio(),
+	            LeerStock()
+	        );
+	        ap.Adicionar(nuevo);
+	        JOptionPane.showMessageDialog(this, "Producto agregado correctamente");
+	    } else {
+	        JOptionPane.showMessageDialog(this, "Ya existe un producto con ese código");
+	    }
+	}
+	protected void do_btnBusCar_actionPerformed(ActionEvent e) {
+		Producto p = ap.Buscar(LeerCodigo()); 
+
+	    if (p != null) {
+	        Imprimir("Codigo\tCategoria\tPrecio\tStock");
+	        Imprimir("" + p.getCod() + "\t" 
+	                     + p.getCategoria() + "\t" 
+	                     + p.getPrecio() + "\t" 
+	                     + p.getStock());
+	        } else 
+	        JOptionPane.showMessageDialog(this, "No existe el código");
+	}
 }
+	
 
