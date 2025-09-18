@@ -36,7 +36,11 @@ public class gui extends JFrame implements ActionListener {
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
 	private JButton btnBusCar;
+<<<<<<< HEAD
 	private JButton btnModificar;
+=======
+	private JButton btnEliminar;
+>>>>>>> 42693404b7d83c9c8fd41938252142e680027fd2
 	private JButton btnNewButton_2;
 
 	/**
@@ -124,9 +128,16 @@ public class gui extends JFrame implements ActionListener {
 		btnBusCar.setBounds(180, 107, 89, 23);
 		contentPane.add(btnBusCar);
 		
+<<<<<<< HEAD
 		btnModificar = new JButton("ELiminar");
 		btnModificar.setBounds(271, 107, 89, 23);
 		contentPane.add(btnModificar);
+=======
+		btnEliminar = new JButton("Eliminar");
+		btnEliminar.addActionListener(this);
+		btnEliminar.setBounds(271, 107, 89, 23);
+		contentPane.add(btnEliminar);
+>>>>>>> 42693404b7d83c9c8fd41938252142e680027fd2
 		
 		btnNewButton_2 = new JButton("Modificar");
 		btnNewButton_2.addActionListener(this);
@@ -135,8 +146,13 @@ public class gui extends JFrame implements ActionListener {
 
 	}
 	public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
 		if (e.getSource() == btnNewButton_2) {
 			do_btnNewButton_2_actionPerformed(e);
+=======
+		if (e.getSource() == btnEliminar) {
+			do_btnEliminar_actionPerformed(e);
+>>>>>>> 42693404b7d83c9c8fd41938252142e680027fd2
 		}
 		if (e.getSource() == btnBusCar) {
 			do_btnBusCar_actionPerformed(e);
@@ -207,6 +223,7 @@ public class gui extends JFrame implements ActionListener {
 	        } else 
 	        JOptionPane.showMessageDialog(this, "No existe el código");
 	}
+<<<<<<< HEAD
 	protected void do_btnNewButton_2_actionPerformed(ActionEvent e) {
 		    Producto p = ap.Buscar(LeerCodigo());
 		    if (p != null) {
@@ -224,6 +241,20 @@ public class gui extends JFrame implements ActionListener {
 		     } else {
 		        JOptionPane.showMessageDialog(this, "No existe un producto con ese código");
 		    }
+=======
+	protected void do_btnEliminar_actionPerformed(ActionEvent e) {
+		Producto pr= ap.Buscar(LeerCodigo());
+		
+		if(pr != null)
+		{
+			ap.Eliminar(pr);
+			JOptionPane.showMessageDialog(this, "Código eliminado");
+		}
+		else 
+		{
+			JOptionPane.showMessageDialog(this,"No existe el código");
+		}
+>>>>>>> 42693404b7d83c9c8fd41938252142e680027fd2
 	}
 }
 	

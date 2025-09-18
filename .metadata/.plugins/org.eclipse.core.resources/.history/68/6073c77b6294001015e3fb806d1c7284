@@ -1,0 +1,200 @@
+package gui;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import arreglo.ArregloEstudiantes;
+import clase.Estudiante;
+
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Ventana1 extends JFrame implements ActionListener {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
+	private JButton btnNewButton;
+	private JButton btnNewButton_1;
+	private JLabel lblNewLabel_3;
+	private JTextField txtCod;
+	private JTextField txtNom;
+	private JTextField txtN1;
+	private JTextField txtN2;
+	private JButton btnNewButton_2;
+	private JButton btnNewButton_3;
+	private JTextArea textArea;
+	private JTextArea txtS;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Ventana1 frame = new Ventana1();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Ventana1() {
+		setTitle("Estudiantes");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 601, 377);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		lblNewLabel = new JLabel("Codigo");
+		lblNewLabel.setBounds(72, 64, 44, 12);
+		contentPane.add(lblNewLabel);
+		
+		lblNewLabel_1 = new JLabel("Nombre");
+		lblNewLabel_1.setBounds(72, 90, 81, 12);
+		contentPane.add(lblNewLabel_1);
+		
+		lblNewLabel_2 = new JLabel("Nota1");
+		lblNewLabel_2.setBounds(72, 112, 44, 12);
+		contentPane.add(lblNewLabel_2);
+		
+		btnNewButton = new JButton("Modificar");
+		btnNewButton.addActionListener(this);
+		btnNewButton.setBounds(380, 60, 84, 20);
+		contentPane.add(btnNewButton);
+		
+		btnNewButton_1 = new JButton("Eliminar");
+		btnNewButton_1.addActionListener(this);
+		btnNewButton_1.setBounds(380, 108, 84, 20);
+		contentPane.add(btnNewButton_1);
+		
+		lblNewLabel_3 = new JLabel("Nota2");
+		lblNewLabel_3.setBounds(72, 134, 44, 12);
+		contentPane.add(lblNewLabel_3);
+		
+		txtCod = new JTextField();
+		txtCod.setBounds(122, 61, 96, 18);
+		contentPane.add(txtCod);
+		txtCod.setColumns(10);
+		
+		txtNom = new JTextField();
+		txtNom.setBounds(122, 87, 96, 18);
+		contentPane.add(txtNom);
+		txtNom.setColumns(10);
+		
+		txtN1 = new JTextField();
+		txtN1.setBounds(122, 109, 96, 18);
+		contentPane.add(txtN1);
+		txtN1.setColumns(10);
+		
+		txtN2 = new JTextField();
+		txtN2.setBounds(122, 131, 96, 18);
+		contentPane.add(txtN2);
+		txtN2.setColumns(10);
+		
+		txtS = new JTextArea();
+		txtS.setBounds(35, 175, 531, 155);
+		contentPane.add(txtS);
+		
+		btnNewButton_2 = new JButton("Listar");
+		btnNewButton_2.addActionListener(this);
+		btnNewButton_2.setBounds(256, 86, 84, 20);
+		contentPane.add(btnNewButton_2);
+		
+		btnNewButton_3 = new JButton("Agregar");
+		btnNewButton_3.addActionListener(this);
+		btnNewButton_3.setBounds(256, 38, 84, 20);
+		contentPane.add(btnNewButton_3);
+		
+		textArea = new JTextArea();
+		textArea.setBounds(35, 175, 531, 155);
+		contentPane.add(textArea);
+
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnNewButton_3) {
+			do_btnNewButton_3_actionPerformed(e);
+		}
+		if (e.getSource() == btnNewButton) {
+			do_btnNewButton_actionPerformed(e);
+		}
+		if (e.getSource() == btnNewButton_1) {
+			do_btnNewButton_1_actionPerformed(e);
+		}
+		if (e.getSource() == btnNewButton_2) {
+			do_btnNewButton_2_actionPerformed(e);
+		}
+	}
+	protected void do_btnNewButton_2_actionPerformed(ActionEvent e) 
+	{
+		String codigo = txtCod.getText();
+        String nombre = txtNom.getText();
+        double nota1 = Double.parseDouble(txtN1.getText());
+        double nota2 = Double.parseDouble(txtN2.getText());
+
+        Estudiante est = new Estudiante(codigo, nombre, nota1, nota2);
+        arreglo.agregar(est);
+
+        JOptionPane.showMessageDialog(null, "Estudiante agregado correctamente");
+	}
+	protected void do_btnNewButton_1_actionPerformed(ActionEvent e) 
+	{
+		String codigo = txtCod.getText();
+        arreglo.eliminar(codigo);
+        JOptionPane.showMessageDialog(null, "Estudiante eliminado");
+	}
+	protected void do_btnNewButton_actionPerformed(ActionEvent e) 
+	{
+	        String codigo = txtCod.getText();
+	        Estudiante est = arreglo.buscar(codigo);
+
+	        if (est != null) 
+	        {
+	            est.setNombre(txtNom.getText());
+	            est.setNota1(Double.parseDouble(txtN1.getText()));
+	            est.setNota2(Double.parseDouble(txtN2.getText()));
+	            JOptionPane.showMessageDialog(null, "Estudiante modificado");
+	        } else 
+	        {
+	            JOptionPane.showMessageDialog(null, "No se encontró el estudiante");
+	        }
+	    
+	}
+	protected void do_btnNewButton_3_actionPerformed(ActionEvent e) 
+	{
+		 String codigo = txtCod.getText();
+	        String nombre = txtNom.getText();
+	        double nota1 = Double.parseDouble(txtN1.getText());
+	        double nota2 = Double.parseDouble(txtN2.getText());
+
+	        Estudiante est = new Estudiante(codigo, nombre, nota1, nota2);
+	        arreglo.agregar(est);
+
+	        // Mostrar todos los estudiantes
+	        StringBuilder sb = new StringBuilder();
+	        for (Estudiante x : arreglo.listar()) {
+	            sb.append(x.toString()).append("\n");
+	        }
+	        TX.setText(sb.toString());
+	    }
+	}
+}
