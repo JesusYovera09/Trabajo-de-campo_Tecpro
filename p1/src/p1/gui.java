@@ -36,7 +36,7 @@ public class gui extends JFrame implements ActionListener {
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
 	private JButton btnBusCar;
-	private JButton button_1;
+	private JButton btnModificar;
 	private JButton btnNewButton_2;
 
 	/**
@@ -60,7 +60,7 @@ public class gui extends JFrame implements ActionListener {
 	 */
 	public gui() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 482, 310);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -124,16 +124,20 @@ public class gui extends JFrame implements ActionListener {
 		btnBusCar.setBounds(180, 107, 89, 23);
 		contentPane.add(btnBusCar);
 		
-		button_1 = new JButton("New button");
-		button_1.setBounds(271, 107, 89, 23);
-		contentPane.add(button_1);
+		btnModificar = new JButton("ELiminar");
+		btnModificar.setBounds(271, 107, 89, 23);
+		contentPane.add(btnModificar);
 		
-		btnNewButton_2 = new JButton("New button");
+		btnNewButton_2 = new JButton("Modificar");
+		btnNewButton_2.addActionListener(this);
 		btnNewButton_2.setBounds(362, 107, 89, 23);
 		contentPane.add(btnNewButton_2);
 
 	}
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnNewButton_2) {
+			do_btnNewButton_2_actionPerformed(e);
+		}
 		if (e.getSource() == btnBusCar) {
 			do_btnBusCar_actionPerformed(e);
 		}
@@ -202,6 +206,24 @@ public class gui extends JFrame implements ActionListener {
 	                     + p.getStock());
 	        } else 
 	        JOptionPane.showMessageDialog(this, "No existe el código");
+	}
+	protected void do_btnNewButton_2_actionPerformed(ActionEvent e) {
+		    Producto p = ap.Buscar(LeerCodigo());
+		    if (p != null) {
+     	        p.setCategoria(LeerCategoria());  
+		        p.setPrecio(LeerPrecio());        
+		        p.setStock(LeerStock());       
+		        
+		        JOptionPane.showMessageDialog(this, "Producto modificado correctamente");	 
+		        txtCod.setText("");
+		        txtCat.setText("");
+		        txtPrecio.setText("");
+		        txtSto.setText("");		        		    
+		        Listado();
+		        
+		     } else {
+		        JOptionPane.showMessageDialog(this, "No existe un producto con ese código");
+		    }
 	}
 }
 	
