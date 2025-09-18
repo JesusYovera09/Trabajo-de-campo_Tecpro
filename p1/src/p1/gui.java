@@ -36,7 +36,7 @@ public class gui extends JFrame implements ActionListener {
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
 	private JButton btnBusCar;
-	private JButton button_1;
+	private JButton btnEliminar;
 	private JButton btnNewButton_2;
 
 	/**
@@ -124,9 +124,10 @@ public class gui extends JFrame implements ActionListener {
 		btnBusCar.setBounds(180, 107, 89, 23);
 		contentPane.add(btnBusCar);
 		
-		button_1 = new JButton("New button");
-		button_1.setBounds(271, 107, 89, 23);
-		contentPane.add(button_1);
+		btnEliminar = new JButton("Eliminar");
+		btnEliminar.addActionListener(this);
+		btnEliminar.setBounds(271, 107, 89, 23);
+		contentPane.add(btnEliminar);
 		
 		btnNewButton_2 = new JButton("New button");
 		btnNewButton_2.setBounds(362, 107, 89, 23);
@@ -134,6 +135,9 @@ public class gui extends JFrame implements ActionListener {
 
 	}
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnEliminar) {
+			do_btnEliminar_actionPerformed(e);
+		}
 		if (e.getSource() == btnBusCar) {
 			do_btnBusCar_actionPerformed(e);
 		}
@@ -202,6 +206,19 @@ public class gui extends JFrame implements ActionListener {
 	                     + p.getStock());
 	        } else 
 	        JOptionPane.showMessageDialog(this, "No existe el código");
+	}
+	protected void do_btnEliminar_actionPerformed(ActionEvent e) {
+		Producto pr= ap.Buscar(LeerCodigo());
+		
+		if(pr != null)
+		{
+			ap.Eliminar(pr);
+			JOptionPane.showMessageDialog(this, "Código eliminado");
+		}
+		else 
+		{
+			JOptionPane.showMessageDialog(this,"No existe el código");
+		}
 	}
 }
 	

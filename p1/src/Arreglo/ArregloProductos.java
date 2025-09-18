@@ -30,4 +30,8 @@ public Producto Buscar(int cod) {
     }
     return null; 
 }
+public void Eliminar(Producto x)
+{
+	pro.remove(x);
+}
 }
