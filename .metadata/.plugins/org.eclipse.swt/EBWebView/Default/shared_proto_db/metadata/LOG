@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 2025/09/25-17:38:06.091 3388 Reusing MANIFEST C:\Users\David\Desktop\trabajadecampoaagrupo4s\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\shared_proto_db\metadata/MANIFEST-000001
 2025/09/25-17:38:06.093 3388 Recovering log #3
 2025/09/25-17:38:06.093 3388 Reusing old log C:\Users\David\Desktop\trabajadecampoaagrupo4s\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\shared_proto_db\metadata/000003.log 
+=======
+2025/09/24-21:13:54.974 1668 Creating DB C:\Users\jesus\OneDrive\Desktop\Trabajo de campo- grupo 4\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\shared_proto_db\metadata since it was missing.
+2025/09/24-21:13:54.986 1668 Reusing MANIFEST C:\Users\jesus\OneDrive\Desktop\Trabajo de campo- grupo 4\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\shared_proto_db\metadata/MANIFEST-000001
+>>>>>>> 695f54c5e0dcb69624a9d5911c5eabe5de2d48d5

@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 2025/09/25-17:38:06.760 2658 Reusing MANIFEST C:\Users\David\Desktop\trabajadecampoaagrupo4s\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Session Storage/MANIFEST-000001
 2025/09/25-17:38:06.761 2658 Recovering log #3
 2025/09/25-17:38:06.764 2658 Reusing old log C:\Users\David\Desktop\trabajadecampoaagrupo4s\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Session Storage/000003.log 
+=======
+2025/09/24-21:14:09.098 337c Creating DB C:\Users\jesus\OneDrive\Desktop\Trabajo de campo- grupo 4\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Session Storage since it was missing.
+2025/09/24-21:14:09.162 337c Reusing MANIFEST C:\Users\jesus\OneDrive\Desktop\Trabajo de campo- grupo 4\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Session Storage/MANIFEST-000001
+>>>>>>> 695f54c5e0dcb69624a9d5911c5eabe5de2d48d5

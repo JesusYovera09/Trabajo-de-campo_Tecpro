@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 INDEX VERSION 1.134+C:\Users\David\Desktop\trabajadecampoaagrupo4s\.metadata\.plugins\org.eclipse.jdt.core
 3569787000.index
 1865797976.index
 3825628938.index
+=======
+INDEX VERSION 1.134+C:\Users\jesus\OneDrive\Desktop\Trabajo de campo- grupo 4\.metadata\.plugins\org.eclipse.jdt.core
+4124730446.index
+3825628938.index
+1865797976.index
+>>>>>>> 695f54c5e0dcb69624a9d5911c5eabe5de2d48d5

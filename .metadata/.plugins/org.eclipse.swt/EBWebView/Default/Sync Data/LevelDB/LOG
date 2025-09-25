@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 2025/09/25-17:38:05.778 658c Reusing MANIFEST C:\Users\David\Desktop\trabajadecampoaagrupo4s\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Sync Data\LevelDB/MANIFEST-000001
 2025/09/25-17:38:05.781 658c Recovering log #3
 2025/09/25-17:38:05.782 658c Reusing old log C:\Users\David\Desktop\trabajadecampoaagrupo4s\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Sync Data\LevelDB/000003.log 
+=======
+2025/09/24-21:13:54.925 36dc Creating DB C:\Users\jesus\OneDrive\Desktop\Trabajo de campo- grupo 4\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Sync Data\LevelDB since it was missing.
+2025/09/24-21:13:54.941 36dc Reusing MANIFEST C:\Users\jesus\OneDrive\Desktop\Trabajo de campo- grupo 4\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Sync Data\LevelDB/MANIFEST-000001
+>>>>>>> 695f54c5e0dcb69624a9d5911c5eabe5de2d48d5
