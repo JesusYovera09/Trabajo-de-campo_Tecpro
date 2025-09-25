@@ -30,4 +30,28 @@ public Producto Buscar(int cod) {
     }
     return null; 
 }
+public void Eliminar(Producto x)
+{
+	pro.remove(x);
 }
+
+public Producto BuscarCate(String  categoria) 
+{
+	 
+	 for(int i=0; i<Tamaño(); i++)
+	 {
+		 if (Obtener(i).getCategoria().equalsIgnoreCase(categoria)){
+			 return Obtener(i);
+		 }
+	 }
+	 return null;
+	 
+}
+public void limpiar()
+{
+	pro.clear();
+}
+}
+
+
+
